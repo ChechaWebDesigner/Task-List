@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="César Joel González Oliva">
+    <title>Lista Tareas</title>
+    <link rel="icon" href="./images/task-icon.ico">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script src="https://kit.fontawesome.com/603df44e52.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-gray-50 font-poppins">
+    <section class="container mx-auto my-5 flex flex-col lg:flex-row lg:items-center">
+        <div class="px-4 lg:w-2/5">
+            <h1 class="text-blue-600 font-bold text-4xl text-center mb-2 lg:text-5xl lg:text-left">Lista de tareas</h1>
+            <p class="text-gray-800 font-semibold text-xl text-justify">El sitio web que te ayudará a ser más
+                responsable y disciplinado, puesto que donde hay buena disciplina, hay orden y rara vez falta la buena
+                fortuna.</p>
+        </div>
+        <div class="bg-blob-2 bg-no-repeat flex justify-center p-6 lg:w-3/5">
+            <img src="./images/task-list.svg" alt="Task 1" class="w-1/2">
+        </div>
+    </section>
+
+    <section class="container mx-auto flex flex-col justify-evenly items-center my-10 lg:w-full lg:flex-row lg:items-start lg:gap-4">
+        <form action="#" method="post" class="py-10 px-5 shadow-lg bg-yellow-100 w-11/12 rounded-lg"
+            id="frmTask">
+            <h2 class="text-blue-500 title-tasks" id="title-task">Nueva Tarea</h2>
+
+            <div class="name pt-4">
+                <div class="form-control relative mb-10 w-full">
+                    <input type="text" required="" name="txtNameTask" class="input-task group" id="txtNameTask">
+                    <label class="container-letters">
+                        <span style="transition-delay:0ms" class="letter-input">N</span><span
+                            style="transition-delay:50ms" class="letter-input">o</span><span
+                            style="transition-delay:100ms" class="letter-input">m</span><span
+                            style="transition-delay:150ms" class="letter-input">b </span><span
+                            style="transition-delay:200ms" class="letter-input">r</span><span
+                            style="transition-delay:250ms" class="letter-input">e</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="description pt-4">
+                <div class="form-control relative mb-10 w-full">
+                    <textarea required name="txtDescriptionTask" id="txtDescriptionTask" class="resize-none group input-task"
+                        maxlength="100"></textarea>
+                    <label class="container-letters">
+                        <span style="transition-delay:0ms" class="letter-input">D</span><span
+                            style="transition-delay:50ms" class="letter-input">e</span><span
+                            style="transition-delay:100ms" class="letter-input">s</span><span
+                            style="transition-delay:150ms" class="letter-input">c </span><span
+                            style="transition-delay:200ms" class="letter-input">r</span><span
+                            style="transition-delay:250ms" class="letter-input">i</span><span
+                            style="transition-delay:300ms" class="letter-input">p</span><span
+                            style="transition-delay:350ms" class="letter-input">c</span><span
+                            style="transition-delay:400ms" class="letter-input">i</span><span
+                            style="transition-delay:450ms" class="letter-input">o</span><span
+                            style="transition-delay:500ms" class="letter-input">n</span>
+                    </label>
+
+                </div>
+            </div>
+
+            <div class="date text-center flex justify-evenly flex-wrap gap-2">
+                <div>
+                    <h3 class="cmb-title">Año</h3>
+                    <select name="cmbYear" id="cmbYears" class="cmb-date">
+
+                    </select>
+                </div>
+                <div>
+                    <h3 class="cmb-title">Mes</h3>
+                    <select name="cmbMonth" id="cmbMonths" class="cmb-date">
+
+                    </select>
+                </div>
+                <div>
+                    <h3 class="cmb-title">Dia</h3>
+                    <select name="cmbDay" id="cmbDays" class="cmb-date">
+
+                    </select>
+                </div>
+                <div>
+                    <h3 class="cmb-title">Hora</h3>
+                    <select name="cmbHour" id="cmbHours" class="cmb-date">
+
+                    </select>
+                </div>
+                <div>
+                    <h3 class="cmb-title">Minuto</h3>
+                    <select name="cmbMinute" id="cmbMinutes" class="cmb-date">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="py-4 mt-5 flex justify-between flex-wrap">
+                <input type="reset"
+                    class="btn-base bg-blue-500 text-white px-5 py-2 hover:bg-transparent hover:border-blue-500 hover:text-blue-500"
+                    value="Limpiar">
+                    <button class="btn-base btn-changes hidden" id="btnModificar">Modificar</button>
+                <input type="submit"
+                    class="btn-base btn-changes"
+                    value="Guardar" id="btnGuardar">
+            </div>
+
+        </form>
+
+        <article class="tasks mt-10 py-10 px-5 shadow-lg bg-sky-100 w-11/12 rounded-lg lg:mt-0">
+            <h2 class="title-tasks text-orange-400">Tareas</h2>
+            <div class="container-tasks">
+
+
+                <!-- <div class="task-element flex justify-between flex-wrap mt-3">
+
+                    <div class="">
+                        <button class="text-lg mr-5 btnEye" id="">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                        <span class="name-task">Nombre Tarea</span>
+                    </div>
+
+                    <div class="options-task flex gap-x-4">
+                        <button class="text-blue-600 btnPencil">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <button class="text-green-600 btnUpdate hidden">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                        <button class="text-red-600">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="w-full mt-4 hidden element-description absolute -top-full z-10 opacity-0">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni error excepturi fuga ipsum
+                        accusamus impedit perferendis amet ab accusantium, ipsa nemo doloribus labore ratione
+                        voluptatibus fugit aliquid itaque eveniet cupiditate.
+                    </div>
+
+                </div> -->
+            </div>
+        </article>
+    </section>
+
+    <script src="./js/selects.js"></script>
+    <script src="./js/task.js" type="module"></script>
+</body>
+
+</html>
