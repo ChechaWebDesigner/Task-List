@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         const compareDate = new Date(year, month, day, hour, minute);
 
         if (compareDate.getTime() - actualDate.getTime() <= 0) {
-          taskElement.classList.add("task-finished", "hidden");
+          taskElement.classList.add("task-finished");
         }
 
         fragmentTasks.appendChild(taskElement);
