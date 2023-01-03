@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const fragmentYears = document.createDocumentFragment();
   for (let i = 1; i < 5; i++) {
     const year = document.createElement("option");
-    year.textContent = 2021 + i;
-    year.value = 2021 + i;
+    year.textContent = 2022 + i;
+    year.value = 2022 + i;
     fragmentYears.appendChild(year);
   }
   containerYears.appendChild(fragmentYears);
