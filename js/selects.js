@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   const containerHours = document.getElementById("cmbHours");
   const fragmentsHours = document.createDocumentFragment();
-  for (let i = 1; i <= 24; i++) {
+  for (let i = 0; i < 24; i++) {
     const hour = document.createElement("option");
     hour.textContent = i;
     hour.value = i;
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   const containerMinutes = document.getElementById("cmbMinutes");
   const fragmentMinutes = document.createDocumentFragment();
-  for (let i = 0; i <= 60; i++) {
+  for (let i = 0; i < 60; i++) {
     const minutes = document.createElement("option");
     minutes.textContent = i;
     minutes.value = i;
