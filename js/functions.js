@@ -3,7 +3,13 @@ export function showEye(descriptionElement) {
   descriptionElement.classList.toggle("animate-getDown");
 }
 
-export function activeChanges(element, btnUpdate, btnEye, containerDescription, descriptionElement) {
+export function activeChanges({
+  element,
+  btnUpdate,
+  btnEye,
+  containerDescription,
+  descriptionElement,
+}) {
   element.classList.toggle("hidden");
   btnUpdate.classList.toggle("hidden");
   btnEye.classList.toggle("hidden");
@@ -13,7 +19,12 @@ export function activeChanges(element, btnUpdate, btnEye, containerDescription, 
   descriptionElement.setAttribute("contenteditable", true);
 }
 
-export function saveChanges(element, btnEye, btnPencil, descriptionElement) {
+export function saveChanges({
+  element,
+  btnEye,
+  btnPencil,
+  descriptionElement,
+}) {
   element.classList.toggle("hidden");
   btnEye.classList.toggle("hidden");
   btnPencil.classList.toggle("hidden");
@@ -25,24 +36,22 @@ export function validateCeros(num) {
   return num.toString().padStart(2, 0);
 }
 
-export function evaluateTask(
+export function evaluateTask({
   transactionProcess,
   day,
   month,
   year,
   hour,
-  minute
-) {
+  minutes,
+}) {
   const readTask = transactionProcess("readonly");
   const reader = readTask.openCursor();
 
   reader.addEventListener("success", (e) => {
-    if (!e.target.result) {
-      
-    } else {
+    if (e.target.result) {
       if (
         e.target.result.value.day === day &&
-        e.target.result.value.minute === minute &&
+        e.target.result.value.minute === minutes &&
         e.target.result.value.month === month &&
         e.target.result.value.hour === hour &&
         e.target.result.value.year === year
@@ -56,10 +65,17 @@ export function evaluateTask(
           icon: "https://cdn-icons-png.flaticon.com/512/497/497738.png",
         });
         taskFinished.classList.add("task-finished");
+        const btnPencil = taskFinished.querySelector(
+          ".principal-child .options-task .btnPencil"
+        );
+        btnPencil.parentNode.removeChild(btnPencil);
       }
 
       e.target.result.continue();
-    }
+    } 
+    // else {
+    //   console.log("Pizza") // Esto se ejecuta cuando termina el intervalo de examinar tarea
+    // }
   });
 }
 
@@ -88,5 +104,5 @@ function checkTask(transactionProcess) {
 
   const month = date.getMonth();
 
-  evaluateTask(transactionProcess, day, month, year, hour, minutes);
+  evaluateTask({ transactionProcess, day, month, year, hour, minutes });
 }
