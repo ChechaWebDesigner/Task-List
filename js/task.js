@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         } else {
           containerTask.innerHTML = "";
         }
+
         containerTask.appendChild(fragmentTasks);
       } else {
         /* Datos */
@@ -107,7 +108,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
         optionsTask.classList.add("options-task");
 
         const btnPencil = document.createElement("button");
-        btnPencil.classList.add("text-blue-600", "btnPencil");
+        btnPencil.classList.add(
+          "text-blue-600",
+          "btnPencil",
+          `btn-pencil-${index}`
+        );
 
         const btnPencilDraw = document.createElement("i");
         btnPencilDraw.classList.add("fa-solid", "fa-pen");
@@ -176,22 +181,30 @@ document.addEventListener("DOMContentLoaded", (e) => {
         });
 
         btnPencil.addEventListener("click", function (e) {
-          activeChanges(
-            this,
+          activeChanges({
+            element: this,
             btnUpdate,
             btnEye,
-            secondaryChild,
-            elementDescription
-          );
+            containerDescription: secondaryChild,
+            descriptionElement: elementDescription,
+          });
         });
 
         btnUpdate.addEventListener("click", function (e) {
-          saveChanges(this, btnEye, btnPencil, secondaryChild);
+          saveChanges({
+            element: this,
+            btnEye,
+            btnPencil,
+            descriptionElement: secondaryChild,
+          });
         });
 
         btnDelete.addEventListener("click", function (e) {
           deleteTask(name);
-          document.querySelector(".container-tasks").removeChild(taskElement);
+          const containerTasks = document.querySelector(".container-tasks");
+          containerTasks.removeChild(taskElement);
+          if (!containerTasks.hasChildNodes())
+            containerTasks.innerHTML = `<h3 class="text-xl font-semibold text-center">No hay tareas</h3>`;
         });
 
         btnUpdate.addEventListener("click", function (e) {
@@ -216,6 +229,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
         if (compareDate.getTime() - actualDate.getTime() <= 0) {
           taskElement.classList.add("task-finished");
+          btnPencil.parentNode.removeChild(btnPencil);
         }
 
         fragmentTasks.appendChild(taskElement);
