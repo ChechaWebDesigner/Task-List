@@ -62,16 +62,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
     reader.addEventListener("success", (e) => {
       if (!e.target.result) {
         const containerTask = document.querySelector(".container-tasks");
+        containerTask.innerHTML = "";
         if (index === 0) {
           const msgTask = document.createElement("h3");
           msgTask.classList.add("text-xl", "font-semibold", "text-center");
           msgTask.textContent = "No hay tareas";
           containerTask.appendChild(msgTask);
         } else {
-          containerTask.innerHTML = "";
+          containerTask.appendChild(fragmentTasks);
         }
-
-        containerTask.appendChild(fragmentTasks);
       } else {
         /* Datos */
         const name = e.target.result.value.name;

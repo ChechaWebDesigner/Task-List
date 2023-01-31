@@ -26,9 +26,10 @@
         </div>
     </section>
 
-    <section class="container mx-auto flex flex-col justify-evenly items-center my-10 lg:w-full lg:flex-row lg:items-start lg:gap-4">
-        <form action="#" method="post" class="py-10 px-5 shadow-lg bg-yellow-100 w-11/12 rounded-lg"
-            id="frmTask">
+    <section
+        class="container mx-auto grid grid-cols-1 justify-items-center items-center my-10 lg:w-full lg:grid-cols-2 lg:items-start lg:gap-4">
+        <form action="#" method="post"
+            class="col-span-1 py-10 px-5 shadow-lg bg-yellow-100 w-11/12 rounded-lg lg:min-h-[38rem]" id="frmTask">
             <h2 class="text-blue-500 title-tasks" id="title-task">Nueva Tarea</h2>
 
             <div class="name pt-4">
@@ -47,8 +48,8 @@
 
             <div class="description pt-4">
                 <div class="form-control relative mb-10 w-full">
-                    <textarea required name="txtDescriptionTask" id="txtDescriptionTask" class="resize-none group input-task"
-                        maxlength="100"></textarea>
+                    <textarea required name="txtDescriptionTask" id="txtDescriptionTask"
+                        class="resize-none group input-task" maxlength="100"></textarea>
                     <label class="container-letters">
                         <span style="transition-delay:0ms" class="letter-input">D</span><span
                             style="transition-delay:50ms" class="letter-input">e</span><span
@@ -103,47 +104,18 @@
                 <input type="reset"
                     class="btn-base bg-blue-500 text-white px-5 py-2 hover:bg-transparent hover:border-blue-500 hover:text-blue-500"
                     value="Limpiar">
-                    <button class="btn-base btn-changes hidden" id="btnModificar">Modificar</button>
-                <input type="submit"
-                    class="btn-base btn-changes"
-                    value="Guardar" id="btnGuardar">
+                <button class="btn-base btn-changes hidden" id="btnModificar">Modificar</button>
+                <input type="submit" class="btn-base btn-changes" value="Guardar" id="btnGuardar">
             </div>
 
         </form>
 
-        <article class="tasks mt-10 py-10 px-5 shadow-lg bg-sky-100 w-11/12 rounded-lg lg:mt-0">
+        <article
+            class="tasks col-span-1 h-full mt-10 py-10 px-5 shadow-lg bg-sky-100 w-11/12 rounded-lg lg:mt-0 overflow-y-auto lg:max-h-[38rem]">
             <h2 class="title-tasks text-orange-400">Tareas</h2>
             <div class="container-tasks">
-
-
-                <!-- <div class="task-element flex justify-between flex-wrap mt-3">
-
-                    <div class="">
-                        <button class="text-lg mr-5 btnEye" id="">
-                            <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <span class="name-task">Nombre Tarea</span>
-                    </div>
-
-                    <div class="options-task flex gap-x-4">
-                        <button class="text-blue-600 btnPencil">
-                            <i class="fa-solid fa-pen"></i>
-                        </button>
-                        <button class="text-green-600 btnUpdate hidden">
-                            <i class="fa-solid fa-check"></i>
-                        </button>
-                        <button class="text-red-600">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
-
-                    <div class="w-full mt-4 hidden element-description absolute -top-full z-10 opacity-0">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni error excepturi fuga ipsum
-                        accusamus impedit perferendis amet ab accusantium, ipsa nemo doloribus labore ratione
-                        voluptatibus fugit aliquid itaque eveniet cupiditate.
-                    </div>
-
-                </div> -->
+                <!-- Este Loader desaparece cuando se cargan las tareas -->
+                <img src="./images/loader.svg" alt="loader" class="block mx-auto">
             </div>
         </article>
     </section>
